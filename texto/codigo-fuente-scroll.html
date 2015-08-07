@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Código fuente con Bootstrap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+<h1>Código fuente con Bootstrap</h1>
+
+<pre class="pre-scrollable">import java.applet.Applet;
+import java.awt.event.*;
+import java.awt.Label;
+
+public class DobleClick extends Applet {
+
+	private static final long serialVersionUID = 1L;
+	private Label label1 = null;
+	
+	public DobleClick() {
+		super();
+	}
+
+	public void init() {
+		label1 = new Label();
+		label1.setText("Haz doble click o triple click sobre el applet");
+		this.setSize(300, 200);
+		this.add(label1, null);
+		
+		// Añadimos el manejador
+		ManejoClicks mC = new ManejoClicks();
+	    this.addMouseListener(mC);
+
+	}
+	
+	class ManejoClicks extends MouseAdapter {
+	       public void mouseClicked(MouseEvent evt) {
+	         if (evt.getClickCount() == 3) {
+	           showStatus ("Se ha producido un triple click");
+	         } else if (evt.getClickCount()==2) {
+	           showStatus ("Se ha producido un doble click");
+	         }
+	       }
+	}
+
+}</pre>
+
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/bootstrap/mostrar-codigo-fuente-en-bootstrap/">http://lineadecodigo.com/bootstrap/mostrar-codigo-fuente-en-bootstrap/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</div>
+
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
